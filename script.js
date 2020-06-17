@@ -9,9 +9,9 @@ let validateUserInput = () => {
     let userCapital = document.querySelector('#capital').value;
     let selectedProduct = document.querySelector('#product').value;
     let formValid = form.checkValidity();
-    if (formValid) {
-        calculateInterest();
-    } else {
+    if (!formValid) {
+        //calculateInterest();
+
         console.log('please enter necessary field');
         console.log(product.value);
         if (userCapital.length === 0) {

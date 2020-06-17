@@ -1,6 +1,6 @@
 <?php 
-$capital = $_POST['capital'];
-$package = $_POST['package'];
+$capital = $_POST['amount'];
+$package = $_POST['product'];
 $month = 6;
 $time = $month / 12;
 
