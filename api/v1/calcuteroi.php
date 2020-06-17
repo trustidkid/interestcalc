@@ -55,7 +55,7 @@ session_start();
     if(isset($_POST['calculate'])){
         $capital = $_POST['amount'];
         $package = $_POST['product'];
-        $month = 6;
+        $month = $_POST['month'];
         $time = $month / 12;
 
     switch ($package) {
@@ -91,7 +91,9 @@ session_start();
             break;
         
         default:
-        echo "enter a valid package";
+        $_SESSION['message'] = "Enter a valid package";
+        header("location: index.php");
+        //echo "enter a valid package";
             
         break;
     }

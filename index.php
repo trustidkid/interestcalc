@@ -36,7 +36,7 @@
         </div>-->
         <div class='input-group'>
             <label for='month'>Month</label>
-            <input type='number' id='month' name="duration" placeholder="Month" min="1" max="12">
+            <input type='number' id='month' name="month" placeholder="Month" min="1" max="12">
             <p class='error' id='month-error'></p>
         </div>
 
