@@ -68,7 +68,11 @@
     $interest = $capital * $rate * $time;
     $roi = $capital + $interest;
 
-    $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/interestcalc'. '/index.php';
+    //local
+   // $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/interestcalc'. '/index.php';
+
+    //web
+    $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/interestcalcula'. '/index.php';
   
     $content = "Your ROI is ". $roi;
     set_alert("message",$content);
