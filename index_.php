@@ -27,7 +27,8 @@
 
     <form class="form-group" action="api/v1/calcuteroi.php" method="POST">
         
-        <div>
+        <div class='jombotron'>
+
             <?php $_SESSION['message'] ?>
         </div>
 

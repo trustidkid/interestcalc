@@ -1,102 +1,78 @@
 <?php
-session_start();
-    //include('../connet.php');
+    session_start();
 
-    //$capital = 2500;//$_GET['capital'] ?? "";
-    //$product = $_GET['product'] ?? "";
-/*
-    $capital = $_POST['amount']; //?? "";
-    $product = $_POST['product']; //?? "";
-    $month = 6; //number of month
-    $duration = $month / 12;
+    function set_alert($type = "message", $content = ""){
+        switch($type){
+            case "message":
+                $_SESSION['message'] = $content;
+            break;
 
+            case "error":
+                $_SESSION['error'] = $content;
+            break;
 
+            case "info":
+                $_SESSION['info'] = $content;
+            break;
 
-    $message = $_SESSION['message'] =
-
-   
-    $interest = "";
-    //echo $capital . "  " . $product . " ". $interest; die();
-
-    switch($product){
-        case 'Piggybank':
-        $product = "Piggybank";
-        $interest = 0.15;
-        break;
-
-        case 'Flex Naira':
-        $product = "Flex Naira";
-        $interest = 0.10;
-        break;
-
-        case 'Safelock':
-        $product = "Safelock";
-        $interest = 0.75;
-        break;
-
-        case 'Target':
-        $product = "Target";
-        $interest = 0.5;
-        break;
-
-        default:
-
-        $messgae = "Please choose product from the list";
-
+            default:
+                $_SESSION['message'] = $content;
+            break;
+        }
     }
 
-    $interest = $capital  * $interest * $duration;
-    $roi = $capital + $interest;
+    $func_url = '../functions/alert.php';
+    //require_once($func_url);
 
-     $messgae = $roi;
-
-    //echo "You should have a total of ". $roi . " at the end of the year";
-*/
     if(isset($_POST['calculate'])){
-        $capital = $_POST['amount'];
-        $package = $_POST['product'];
+        $capital = $_POST['amount'] ?? "";
+        $package = $_POST['product'] ?? "";
         $month = $_POST['month'];
         $time = $month / 12;
 
+        $_SESSION['package'] = $package;
+        $_SESSION['capital'] = $capital;
+        $_SESSION['month'] = $month;
+
+        //initialise variable
+        $rate_array = ['0.1','0.15','0.6 '];
+        $interest = 0;
+        $roi = 0;
+        $rate = 0;
+
     switch ($package) {
         case 'piggybank':
-            $rate = 0.1;
-            $interest = $capital * $rate * $time;
-            $rio = $capital + $interest;
-            echo $rio;
+            $rate = $rate_array[0];
             break;
         case 'Flex Naira':
-            $rate = 0.1;
-            $interest = $capital * $rate * $time;
-            $rio = $capital + $interest;
-            echo $rio;
+            $rate = $rate_array[0];
             break;
         case 'Safelock':
-            $rate = 0.15;
-            $interest = $capital * $rate * $time;
-            $rio = $capital + $interest;
-            echo $rio;
+            $rate = $rate_array[1];
             break;
         case 'Targets':
-            $rate = 0.1;
-            $interest = $capital * $rate * $time;
-            $rio = $capital + $interest;
-            echo $rio;
+            $rate = $rate_array[0];
             break;
         case 'Flex Dollar':
-            $rate = 0.06;
-            $interest = $capital * $rate * $time;
-            $rio = $capital + $interest;
-            echo $rio;
+            $rate = $rate_array[2];
             break;
         
         default:
-        $_SESSION['message'] = "Enter a valid package";
-        header("location: index.php");
-        //echo "enter a valid package";
-            
+        $content = "Enter a valid package";
+        set_alert("error",$content);
+        header("location: ../index.php");
         break;
     }
+
+    //return the value to the UI
+    $interest = $capital * $rate * $time;
+    $roi = $capital + $interest;
+
+    $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/interestcalc'. '/index.php';
+  
+    $content = "Your ROI is ". $roi;
+    set_alert("message",$content);
+    header('Location: ' . $home_url);
 }
 
 ?>
