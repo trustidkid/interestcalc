@@ -72,7 +72,7 @@
    // $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/interestcalc'. '/index.php';
 
     //web
-    $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/interestcalcula'. '/index.php';
+    $home_url = 'https://' . $_SERVER['HTTP_HOST'] . '/index.php';
   
     $content = "Your ROI is ". $roi;
     set_alert("message",$content);
