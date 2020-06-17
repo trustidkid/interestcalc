@@ -19,7 +19,7 @@
 
         </div>
         <div class='input-group'>
-            <label for='product'>Product</label>
+            <label for='product'>Package</label>
             <select class="form-control form-control-lg" required id='product' name="product">
               <option name='Piggybank' value='Select Product'>Select Product</option>
               <option name='Piggybank' value='piggybank'>Piggybank</option>
@@ -30,10 +30,10 @@
           </select>
             <p class='error' id='product-error'></p>
         </div>
-        <div class='input-group'>
+        <!--<div class='input-group'>
             <label for='rate'>Conversion rate</label>
             <input type='text' id='rate' disabled placeholder="15%">
-        </div>
+        </div>-->
         <div class='input-group'>
             <label for='month'>Month</label>
             <input type='number' id='month' name="duration" placeholder="Month" min="1" max="12">
