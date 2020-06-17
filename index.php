@@ -31,15 +31,15 @@
         </div>
 
 
-        <div class='form-row'>
+        <div class='form-control'>
             <label for='Duration'>Duration</label>
             <input type='number' id='capital' placeholder="Enter Number of month" required min=6>
             <p class='error' id='duration-error'></p>
         </div>
 
-        <div class='form-row'>
+        <div class='form-control'>
             <label for='product'>Product</label>
-            <select required id='product' name="product">
+            <select class="form-control form-control-lg" required id='product' name="product">
                 <option name='Piggybank' value='Select Product'>Select Product</option>
                 <option name='Piggybank' value='piggybank'>Piggybank</option>
                 <option name='Flex Naira' value='Flex Naira'>Flex Naira</option>
@@ -49,7 +49,7 @@
             </select>
         </div>
 
-        <div class='form-row'>
+        <div class='form-control'>
             <label for='capital'>Capital</label>
             <input type='number' name="amount" id='capital' placeholder="$1200.00" required min=100>
             <p class='error' id='capital-error'></p>
@@ -57,7 +57,6 @@
             <button type='submit' name="calculate" id='calculate-btn'>Calcuate</button>
         </div>
 
-        <input type="submit" name="submit" id="submit" />
     </form>
     <script src="" async defer></script>
     <!-- JS, Popper.js, and jQuery -->
